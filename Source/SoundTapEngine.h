@@ -1,5 +1,5 @@
 /*
-  File:SoundflowerEngine.h
+  File:SoundTapEngine.h
 
   Version:1.0.1
     ma++ ingalls  |  cycling '74  |  Copyright (C) 2004  |  soundflower.com
@@ -20,16 +20,16 @@
 
 */
 
-#ifndef _SoundflowerENGINE_H
-#define _SoundflowerENGINE_H
+#ifndef MOVAVI_SOUND_TAP_ENGINE_H
+#define MOVAVI_SOUND_TAP_ENGINE_H
 
 #include <IOKit/audio/IOAudioEngine.h>
-#include "SoundflowerDevice.h"
+#include "SoundTapDevice.h"
 
 
-class SoundflowerEngine : public IOAudioEngine
+class SoundTapEngine : public IOAudioEngine
 {
-    OSDeclareDefaultStructors(SoundflowerEngine)
+    OSDeclareDefaultStructors(SoundTapEngine)
     
 	UInt32				mBufferSize;
 	void*				mBuffer;				// input/output buffer
@@ -78,4 +78,4 @@ public:
 };
 
 
-#endif /* _SoundflowerENGINE_H */
+#endif /* MOVAVI_SOUND_TAP_ENGINE_H */
