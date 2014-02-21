@@ -317,8 +317,8 @@ bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
 			goto Error;
         }
 
-        snprintf(inputStreamName, 64, "Soundflower Input Stream #%u", (unsigned int)streamNum + 1);
-        snprintf(outputStreamName, 64, "Soundflower Output Stream #%u", (unsigned int)streamNum + 1);
+        snprintf(inputStreamName, 64, "Movavi Sound Tap Input Stream #%u", (unsigned int)streamNum + 1);
+        snprintf(outputStreamName, 64, "Movavi Sound Tap Output Stream #%u", (unsigned int)streamNum + 1);
 
         if (!inputStream->initWithAudioEngine(this, kIOAudioStreamDirectionInput, startingChannelID, inputStreamName) ||
             !outputStream->initWithAudioEngine(this, kIOAudioStreamDirectionOutput, startingChannelID, outputStreamName)) {
@@ -383,18 +383,18 @@ bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
         }
         
         mBufferSize = blockSize * numBlocks * maxNumChannels * maxBitWidth / 8;
-        //IOLog("Soundflower streamBufferSize: %ld\n", mBufferSize);
+        //IOLog("Movavi Sound Tap streamBufferSize: %ld\n", mBufferSize);
 		
         if (mBuffer == NULL) {
             mBuffer = (void *)IOMalloc(mBufferSize);
             if (!mBuffer) {
-                IOLog("Soundflower: Error allocating output buffer - %lu bytes.\n", (unsigned long)mBufferSize);
+                IOLog("Movavi Sound Tap: Error allocating output buffer - %lu bytes.\n", (unsigned long)mBufferSize);
                 goto Error;
             }
 			
             mThruBuffer = (float*)IOMalloc(mBufferSize);
             if (!mThruBuffer) {
-                IOLog("Soundflower: Error allocating thru buffer - %lu bytes.\n", (unsigned long)mBufferSize);
+                IOLog("Movavi Sound Tap: Error allocating thru buffer - %lu bytes.\n", (unsigned long)mBufferSize);
                 goto Error;
             }
             memset((UInt8*)mThruBuffer, 0, mBufferSize);

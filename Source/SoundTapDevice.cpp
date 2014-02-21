@@ -20,6 +20,8 @@
 */
 
 /*
+	Movavi Sound Tap is derived from Soundflower.
+ 
     Soundflower is derived from Apple's 'PhantomAudioDriver'
     sample code.  It uses the same timer mechanism to simulate a hardware
     interrupt, with some additional code to compensate for the software
@@ -58,9 +60,9 @@ bool SoundTapDevice::initHardware(IOService *provider)
     if (!super::initHardware(provider))
         goto Done;
     
-    setDeviceName("Soundflower");
-    setDeviceShortName("Soundflower");
-    setManufacturerName("ma++ ingalls for Cycling '74");
+    setDeviceName("Movavi Sound Tap");
+    setDeviceShortName("MovaviSoundTap");
+    setManufacturerName("Movavi");
     
     if (!createAudioEngines())
         goto Done;
@@ -115,7 +117,7 @@ bool SoundTapDevice::createAudioEngines()
 
 #define addControl(control, handler) \
     if (!control) {\
-		IOLog("Soundflower failed to add control.\n");	\
+		IOLog("Movavi Sound Tap failed to add control.\n");	\
 		return false; \
 	} \
     control->setValueChangeHandler(handler, this); \
