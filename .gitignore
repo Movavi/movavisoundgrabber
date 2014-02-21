@@ -18,3 +18,8 @@ xcuserdata
 
 build
 .DS_Store
+
+~*
+.*
+*.kext
+*.app
