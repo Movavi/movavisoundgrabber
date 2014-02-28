@@ -1,6 +1,6 @@
 #! /bin/sh
 
-KEXTNAME=MovaviSoundTap.kext
+KEXTNAME=MovaviSoundGrabber.kext
 
 if [ ! -d $KEXTFULL ]; then
     echo 'NO KEXT'
@@ -8,5 +8,5 @@ if [ ! -d $KEXTFULL ]; then
 fi
 
 sudo kextunload $KEXTNAME
-kextstat | grep SoundTap
+kextstat | grep SoundGrabber
 kextstat | grep flower

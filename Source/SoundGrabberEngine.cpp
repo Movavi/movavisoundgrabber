@@ -1,5 +1,5 @@
 /*
-  File:SoundTapEngine.cpp
+  File:SoundGrabberEngine.cpp
 
   Version:1.0.1
     ma++ ingalls  |  cycling '74  |  Copyright (C) 2004  |  soundflower.com
@@ -19,7 +19,7 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-#include "SoundTapEngine.h"
+#include "SoundGrabberEngine.h"
 #include <IOKit/audio/IOAudioControl.h>
 #include <IOKit/audio/IOAudioLevelControl.h>
 #include <IOKit/audio/IOAudioToggleControl.h>
@@ -35,16 +35,16 @@
 
 #define super IOAudioEngine
 
-OSDefineMetaClassAndStructors(SoundTapEngine, IOAudioEngine)
+OSDefineMetaClassAndStructors(SoundGrabberEngine, IOAudioEngine)
 
 
  
-bool SoundTapEngine::init(OSDictionary *properties)
+bool SoundGrabberEngine::init(OSDictionary *properties)
 {
     bool result = false;
     OSNumber *number = NULL;
     
-	//IOLog("SoundTapEngine[%p]::init()\n", this);
+	//IOLog("SoundGrabberEngine[%p]::init()\n", this);
 
     if (!super::init(properties)) {
         goto Done;
@@ -64,8 +64,8 @@ bool SoundTapEngine::init(OSDictionary *properties)
 	 (doseq [[i v] (map-indexed dB->scale (map #(val->dB -40.0 %) (range 0 100)))] (println "\tlogTable[" i "] = " v ";"))
 	 
 	 To adjust the minimum volume, change the -40 (in dB) value in the last line and also the
-	 corresponding visual aid in SoundTapDevice.cpp Do not change the number of volume points 
-	 without also changing the minVolume/minGain constants in SoundTapDevice.cpp.
+	 corresponding visual aid in SoundGrabberDevice.cpp Do not change the number of volume points 
+	 without also changing the minVolume/minGain constants in SoundGrabberDevice.cpp.
 	 
 	 Initially, I used -71 as the minimum volume, but in reality my setup seems to reach zero
 	 muchbefore -71. A floor of -40 seems to work *ok* for my setup.
@@ -197,13 +197,13 @@ Done:
 }
 
 
-bool SoundTapEngine::initHardware(IOService *provider)
+bool SoundGrabberEngine::initHardware(IOService *provider)
 {
     bool result = false;
     IOAudioSampleRate initialSampleRate;
     IOWorkLoop *wl;
     
-    //IOLog("SoundTapEngine[%p]::initHardware(%p)\n", this, provider);
+    //IOLog("SoundGrabberEngine[%p]::initHardware(%p)\n", this, provider);
     
     duringHardwareInit = TRUE;
     
@@ -215,7 +215,7 @@ bool SoundTapEngine::initHardware(IOService *provider)
     initialSampleRate.fraction = 0;
 
     if (!createAudioStreams(&initialSampleRate)) {
-		IOLog("SoundTapEngine::initHardware() failed\n");
+		IOLog("SoundGrabberEngine::initHardware() failed\n");
         goto Done;
     }
 	
@@ -254,7 +254,7 @@ Done:
 }
 
  
-bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
+bool SoundGrabberEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
 {
     bool			result = false;
     OSNumber*		number = NULL;
@@ -317,8 +317,8 @@ bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
 			goto Error;
         }
 
-        snprintf(inputStreamName, 64, "Movavi Sound Tap Input Stream #%u", (unsigned int)streamNum + 1);
-        snprintf(outputStreamName, 64, "Movavi Sound Tap Output Stream #%u", (unsigned int)streamNum + 1);
+        snprintf(inputStreamName, 64, "Movavi Sound Grabber Input Stream #%u", (unsigned int)streamNum + 1);
+        snprintf(outputStreamName, 64, "Movavi Sound Grabber Output Stream #%u", (unsigned int)streamNum + 1);
 
         if (!inputStream->initWithAudioEngine(this, kIOAudioStreamDirectionInput, startingChannelID, inputStreamName) ||
             !outputStream->initWithAudioEngine(this, kIOAudioStreamDirectionOutput, startingChannelID, outputStreamName)) {
@@ -383,18 +383,18 @@ bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
         }
         
         mBufferSize = blockSize * numBlocks * maxNumChannels * maxBitWidth / 8;
-        //IOLog("Movavi Sound Tap streamBufferSize: %ld\n", mBufferSize);
+        //IOLog("Movavi Sound Grabber streamBufferSize: %ld\n", mBufferSize);
 		
         if (mBuffer == NULL) {
             mBuffer = (void *)IOMalloc(mBufferSize);
             if (!mBuffer) {
-                IOLog("Movavi Sound Tap: Error allocating output buffer - %lu bytes.\n", (unsigned long)mBufferSize);
+                IOLog("Movavi Sound Grabber: Error allocating output buffer - %lu bytes.\n", (unsigned long)mBufferSize);
                 goto Error;
             }
 			
             mThruBuffer = (float*)IOMalloc(mBufferSize);
             if (!mThruBuffer) {
-                IOLog("Movavi Sound Tap: Error allocating thru buffer - %lu bytes.\n", (unsigned long)mBufferSize);
+                IOLog("Movavi Sound Grabber: Error allocating thru buffer - %lu bytes.\n", (unsigned long)mBufferSize);
                 goto Error;
             }
             memset((UInt8*)mThruBuffer, 0, mBufferSize);
@@ -424,7 +424,7 @@ bool SoundTapEngine::createAudioStreams(IOAudioSampleRate *initialSampleRate)
         continue;
 
 Error:
-        IOLog("SoundTapEngine[%p]::createAudioStreams() - ERROR\n", this);
+        IOLog("SoundGrabberEngine[%p]::createAudioStreams() - ERROR\n", this);
     
         if (inputStream)
             inputStream->release();
@@ -440,14 +440,14 @@ Error:
     
 Done:
     if (!result)
-        IOLog("SoundTapEngine[%p]::createAudioStreams() - failed!\n", this);
+        IOLog("SoundGrabberEngine[%p]::createAudioStreams() - failed!\n", this);
     return result;
 }
 
  
-void SoundTapEngine::free()
+void SoundGrabberEngine::free()
 {
-	//IOLog("SoundTapEngine[%p]::free()\n", this);
+	//IOLog("SoundGrabberEngine[%p]::free()\n", this);
     
     if (mBuffer) {
         IOFree(mBuffer, mBufferSize);
@@ -461,9 +461,9 @@ void SoundTapEngine::free()
 }
 
  
-IOReturn SoundTapEngine::performAudioEngineStart()
+IOReturn SoundGrabberEngine::performAudioEngineStart()
 {
-    //IOLog("SoundTapEngine[%p]::performAudioEngineStart()\n", this);
+    //IOLog("SoundGrabberEngine[%p]::performAudioEngineStart()\n", this);
 
     // When performAudioEngineStart() gets called, the audio engine should be started from the beginning
     // of the sample buffer.  Because it is starting on the first sample, a new timestamp is needed
@@ -492,7 +492,7 @@ IOReturn SoundTapEngine::performAudioEngineStart()
 }
 
  
-IOReturn SoundTapEngine::performAudioEngineStop()
+IOReturn SoundGrabberEngine::performAudioEngineStop()
 {
     //IOLog("SoundTapEngine[%p]::performAudioEngineStop()\n", this);
      
@@ -502,9 +502,9 @@ IOReturn SoundTapEngine::performAudioEngineStop()
 }
 
  
-UInt32 SoundTapEngine::getCurrentSampleFrame()
+UInt32 SoundGrabberEngine::getCurrentSampleFrame()
 {
-    //IOLog("SoundTapEngine[%p]::getCurrentSampleFrame() - currentBlock = %lu\n", this, currentBlock);
+    //IOLog("SoundGrabberEngine[%p]::getCurrentSampleFrame() - currentBlock = %lu\n", this, currentBlock);
     
     // In order for the erase process to run properly, this function must return the current location of
     // the audio engine - basically a sample counter
@@ -517,10 +517,10 @@ UInt32 SoundTapEngine::getCurrentSampleFrame()
 }
 
 
-IOReturn SoundTapEngine::performFormatChange(IOAudioStream *audioStream, const IOAudioStreamFormat *newFormat, const IOAudioSampleRate *newSampleRate)
+IOReturn SoundGrabberEngine::performFormatChange(IOAudioStream *audioStream, const IOAudioStreamFormat *newFormat, const IOAudioSampleRate *newSampleRate)
 {     
     if (!duringHardwareInit) {
-  //      IOLog("SoundTapEngine[%p]::peformFormatChange(%p, %p, %p)\n", this, audioStream, newFormat, newSampleRate);
+  //      IOLog("SoundGrabberEngine[%p]::peformFormatChange(%p, %p, %p)\n", this, audioStream, newFormat, newSampleRate);
     }
 
     // It is possible that this function will be called with only a format or only a sample rate
@@ -543,10 +543,10 @@ IOReturn SoundTapEngine::performFormatChange(IOAudioStream *audioStream, const I
 }
 
 
-void SoundTapEngine::ourTimerFired(OSObject *target, IOTimerEventSource *sender)
+void SoundGrabberEngine::ourTimerFired(OSObject *target, IOTimerEventSource *sender)
 {
     if (target) {
-        SoundTapEngine	*audioEngine = OSDynamicCast(SoundTapEngine, target);
+        SoundGrabberEngine	*audioEngine = OSDynamicCast(SoundGrabberEngine, target);
 		UInt64				thisTimeNS;
 		uint64_t			time;
 		SInt64				diff;
@@ -578,16 +578,16 @@ void SoundTapEngine::ourTimerFired(OSObject *target, IOTimerEventSource *sender)
 }
 
 
-IOReturn SoundTapEngine::clipOutputSamples(const void *mixBuf, void *sampleBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream)
+IOReturn SoundGrabberEngine::clipOutputSamples(const void *mixBuf, void *sampleBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream)
 {
     UInt32				channelCount = streamFormat->fNumChannels;
     UInt32				offset = firstSampleFrame * channelCount;
     UInt32				byteOffset = offset * sizeof(float);
     UInt32				numBytes = numSampleFrames * channelCount * sizeof(float);
-	SoundTapDevice*	device = (SoundTapDevice*)audioDevice;
+	SoundGrabberDevice*	device = (SoundGrabberDevice*)audioDevice;
 	
 #if 0
-	IOLog("SoundTapEngine[%p]::clipOutputSamples() -- channelCount:%u \n", this, (uint)channelCount);
+	IOLog("SoundGrabberEngine[%p]::clipOutputSamples() -- channelCount:%u \n", this, (uint)channelCount);
 	IOLog("    input -- numChannels: %u", (uint)inputStream->format.fNumChannels);
 	IOLog("    bitDepth: %u", (uint)inputStream->format.fBitDepth);
 	IOLog("    bitWidth: %u", (uint)inputStream->format.fBitWidth);
@@ -636,14 +636,14 @@ IOReturn SoundTapEngine::clipOutputSamples(const void *mixBuf, void *sampleBuf, 
 
 // This is called when client apps need input audio.  Here we give them saved audio from the clip routine.
 
-IOReturn SoundTapEngine::convertInputSamples(const void *sampleBuf, void *destBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream)
+IOReturn SoundGrabberEngine::convertInputSamples(const void *sampleBuf, void *destBuf, UInt32 firstSampleFrame, UInt32 numSampleFrames, const IOAudioStreamFormat *streamFormat, IOAudioStream *audioStream)
 {
     UInt32				frameSize = streamFormat->fNumChannels * sizeof(float);
     UInt32				offset = firstSampleFrame * frameSize;
-	SoundTapDevice*	device = (SoundTapDevice*)audioDevice;
+	SoundGrabberDevice*	device = (SoundGrabberDevice*)audioDevice;
 
 #if 0
-	//IOLog("SoundTapEngine[%p]::convertInputSamples() -- channelCount:%u \n", this, (uint)streamFormat->fNumChannels);
+	//IOLog("SoundGrabberEngine[%p]::convertInputSamples() -- channelCount:%u \n", this, (uint)streamFormat->fNumChannels);
 	IOLog("OUTPUT: firstSampleFrame: %u   numSampleFrames: %u \n", (uint)firstSampleFrame, (uint)numSampleFrames);
 	IOLog("    mLastValidSampleFrame: %u  (diff: %ld)   \n", (uint)mLastValidSampleFrame, long(mLastValidSampleFrame) - long(firstSampleFrame+numSampleFrames));
 #endif 

@@ -1,7 +1,7 @@
 #! /bin/sh
 
 KEXTPATH=Build
-KEXTNAME=MovaviSoundTap.kext
+KEXTNAME=MovaviSoundGrabber.kext
 KEXTFULL=$KEXTPATH/$KEXTNAME
 
 if [ ! -d $KEXTFULL ]; then
@@ -14,5 +14,5 @@ sudo cp -r $KEXTFULL .
 sudo chown -R root:wheel $KEXTNAME
 sudo chmod -R 0755 $KEXTNAME
 sudo kextload -tv $KEXTNAME
-kextstat | grep SoundTap
+kextstat | grep SoundGrabber
 kextstat | grep flower

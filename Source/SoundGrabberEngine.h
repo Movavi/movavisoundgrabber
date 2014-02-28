@@ -1,5 +1,5 @@
 /*
-  File:SoundTapEngine.h
+  File:SoundGrabberEngine.h
 
   Version:1.0.1
     ma++ ingalls  |  cycling '74  |  Copyright (C) 2004  |  soundflower.com
@@ -20,16 +20,14 @@
 
 */
 
-#ifndef MOVAVI_SOUND_TAP_ENGINE_H
-#define MOVAVI_SOUND_TAP_ENGINE_H
+#pragma once
 
 #include <IOKit/audio/IOAudioEngine.h>
-#include "SoundTapDevice.h"
+#include "SoundGrabberDevice.h"
 
-
-class SoundTapEngine : public IOAudioEngine
+class SoundGrabberEngine : public IOAudioEngine
 {
-    OSDeclareDefaultStructors(SoundTapEngine)
+    OSDeclareDefaultStructors(SoundGrabberEngine)
     
 	UInt32				mBufferSize;
 	void*				mBuffer;				// input/output buffer
@@ -51,7 +49,7 @@ class SoundTapEngine : public IOAudioEngine
 
     bool				duringHardwareInit;
     
-	float             logTable[100] ; // Lookup for logarithmic volume scaling.
+	float             	logTable[100] ; 		// Lookup for logarithmic volume scaling.
 
 	
 public:
@@ -76,6 +74,3 @@ public:
     static void ourTimerFired(OSObject *target, IOTimerEventSource *sender);
     
 };
-
-
-#endif /* MOVAVI_SOUND_TAP_ENGINE_H */

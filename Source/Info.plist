@@ -5,17 +5,17 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>MovaviSoundTap</string>
+	<string>MovaviSoundGrabber</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Version ${MODULE_VERSION} copyright © 2014 Movavi</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.movavi.driver.SoundTap</string>
+	<string>com.movavi.driver.SoundGrabber</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>MovaviSoundTap</string>
+	<string>MovaviSoundGrabber</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
@@ -34,7 +34,7 @@
 					<key>BlockSize</key>
 					<integer>8192</integer>
 					<key>Description</key>
-					<string>Movavi Sound Tap</string>
+					<string>Movavi Sound Grabber</string>
 					<key>Formats</key>
 					<array>
 						<dict>
@@ -74,11 +74,11 @@
 				</dict>
 			</array>
 			<key>CFBundleIdentifier</key>
-			<string>com.movavi.driver.SoundTap</string>
+			<string>com.movavi.driver.SoundGrabber</string>
 			<key>IOClass</key>
-			<string>com_movavi_driver_SoundTapDevice</string>
+			<string>com_movavi_driver_SoundGrabberDevice</string>
 			<key>IOMatchCategory</key>
-			<string>com_movavi_driver_SoundTapDevice</string>
+			<string>com_movavi_driver_SoundGrabberDevice</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>

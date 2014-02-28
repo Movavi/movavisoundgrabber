@@ -1,5 +1,5 @@
 /*
-  File:SoundTapDevice.h
+  File:SoundGrabberDevice.h
 
   Version:1.0.1
     ma++ ingalls  |  cycling '74  |  Copyright (C) 2004  |  soundflower.com
@@ -19,8 +19,7 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-#ifndef MOVAVI_SOUND_TAP_DEVICE_H
-#define MOVAVI_SOUND_TAP_DEVICE_H
+#pragma once
 
 #include <IOKit/audio/IOAudioDevice.h>
 
@@ -33,15 +32,15 @@
 #define SAMPLE_RATES_KEY				"SampleRates"
 #define SEPARATE_STREAM_BUFFERS_KEY		"SeparateStreamBuffers"
 #define SEPARATE_INPUT_BUFFERS_KEY		"SeparateInputBuffers"
-#define SoundTapDevice					com_movavi_driver_SoundTapDevice
-#define SoundTapEngine					com_movavi_driver_SoundTapEngine
+#define SoundGrabberDevice				com_movavi_driver_SoundGrabberDevice
+#define SoundGrabberEngine				com_movavi_driver_SoundGrabberEngine
 
-class SoundTapEngine;
+class SoundGrabberEngine;
 
-class SoundTapDevice : public IOAudioDevice
+class SoundGrabberDevice : public IOAudioDevice
 {
-    OSDeclareDefaultStructors(SoundTapDevice)
-    friend class SoundTapEngine;
+    OSDeclareDefaultStructors(SoundGrabberDevice)
+    friend class SoundGrabberEngine;
     
 	// class members
 	
@@ -61,7 +60,7 @@ class SoundTapDevice : public IOAudioDevice
 	
     virtual bool initHardware(IOService *provider);
     virtual bool createAudioEngines();
-    virtual bool initControls(SoundTapEngine *audioEngine);
+    virtual bool initControls(SoundGrabberEngine *audioEngine);
     
     static  IOReturn volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
     virtual IOReturn volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
@@ -76,5 +75,3 @@ class SoundTapDevice : public IOAudioDevice
     virtual IOReturn inputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue);
     
 };
-
-#endif // MOVAVI_SOUND_TAP_DEVICE_H

@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54D0AD960A5E329B006380BD /* SoundTapDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = C93407620601317E002E6A19 /* SoundTapDevice.h */; };
-		54D0AD970A5E329B006380BD /* SoundTapEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = C93407630601317E002E6A19 /* SoundTapEngine.h */; };
-		54D0AD9B0A5E329B006380BD /* SoundTapEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93407640601317E002E6A19 /* SoundTapEngine.cpp */; };
-		54D0AD9D0A5E329B006380BD /* SoundTapDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93407660601317E002E6A19 /* SoundTapDevice.cpp */; };
+		54D0AD960A5E329B006380BD /* SoundGrabberDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = C93407620601317E002E6A19 /* SoundGrabberDevice.h */; };
+		54D0AD970A5E329B006380BD /* SoundGrabberEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = C93407630601317E002E6A19 /* SoundGrabberEngine.h */; };
+		54D0AD9B0A5E329B006380BD /* SoundGrabberEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93407640601317E002E6A19 /* SoundGrabberEngine.cpp */; };
+		54D0AD9D0A5E329B006380BD /* SoundGrabberDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93407660601317E002E6A19 /* SoundGrabberDevice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00F55081007288EA11FF4F98 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
-		2249EC7E0ED70C7E003C8357 /* Soundflower.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Soundflower.xcconfig; sourceTree = "<group>"; };
-		54D0ADA60A5E329B006380BD /* MovaviSoundTap.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovaviSoundTap.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		2249EC7E0ED70C7E003C8357 /* MovaviSoundGrabber.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = MovaviSoundGrabber.xcconfig; sourceTree = "<group>"; };
+		54D0ADA60A5E329B006380BD /* MovaviSoundGrabber.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovaviSoundGrabber.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		789FB3540D62DE4E00C0F5C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C93407620601317E002E6A19 /* SoundTapDevice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SoundTapDevice.h; sourceTree = "<group>"; };
-		C93407630601317E002E6A19 /* SoundTapEngine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SoundTapEngine.h; sourceTree = "<group>"; };
-		C93407640601317E002E6A19 /* SoundTapEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = SoundTapEngine.cpp; sourceTree = "<group>"; };
-		C93407660601317E002E6A19 /* SoundTapDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = SoundTapDevice.cpp; sourceTree = "<group>"; };
+		C93407620601317E002E6A19 /* SoundGrabberDevice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SoundGrabberDevice.h; sourceTree = "<group>"; };
+		C93407630601317E002E6A19 /* SoundGrabberEngine.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SoundGrabberEngine.h; sourceTree = "<group>"; };
+		C93407640601317E002E6A19 /* SoundGrabberEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = SoundGrabberEngine.cpp; sourceTree = "<group>"; };
+		C93407660601317E002E6A19 /* SoundGrabberDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = SoundGrabberDevice.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 		089C166AFE841209C02AAC07 /* SampleAudioDriver */ = {
 			isa = PBXGroup;
 			children = (
-				2249EC7E0ED70C7E003C8357 /* Soundflower.xcconfig */,
+				2249EC7E0ED70C7E003C8357 /* MovaviSoundGrabber.xcconfig */,
 				247142CAFF3F8F9811CA285C /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
@@ -59,7 +59,7 @@
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54D0ADA60A5E329B006380BD /* MovaviSoundTap.kext */,
+				54D0ADA60A5E329B006380BD /* MovaviSoundGrabber.kext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,10 +67,10 @@
 		247142CAFF3F8F9811CA285C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C93407620601317E002E6A19 /* SoundTapDevice.h */,
-				C93407660601317E002E6A19 /* SoundTapDevice.cpp */,
-				C93407630601317E002E6A19 /* SoundTapEngine.h */,
-				C93407640601317E002E6A19 /* SoundTapEngine.cpp */,
+				C93407620601317E002E6A19 /* SoundGrabberDevice.h */,
+				C93407660601317E002E6A19 /* SoundGrabberDevice.cpp */,
+				C93407630601317E002E6A19 /* SoundGrabberEngine.h */,
+				C93407640601317E002E6A19 /* SoundGrabberEngine.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -82,17 +82,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54D0AD960A5E329B006380BD /* SoundTapDevice.h in Headers */,
-				54D0AD970A5E329B006380BD /* SoundTapEngine.h in Headers */,
+				54D0AD960A5E329B006380BD /* SoundGrabberDevice.h in Headers */,
+				54D0AD970A5E329B006380BD /* SoundGrabberEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		54D0AD930A5E329B006380BD /* MovaviSoundTapDriver */ = {
+		54D0AD930A5E329B006380BD /* MovaviSoundGrabberDriver */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54D0ADA10A5E329B006380BD /* Build configuration list for PBXNativeTarget "MovaviSoundTapDriver" */;
+			buildConfigurationList = 54D0ADA10A5E329B006380BD /* Build configuration list for PBXNativeTarget "MovaviSoundGrabberDriver" */;
 			buildPhases = (
 				54D0AD950A5E329B006380BD /* Headers */,
 				54D0AD980A5E329B006380BD /* Resources */,
@@ -104,10 +104,10 @@
 			);
 			dependencies = (
 			);
-			name = MovaviSoundTapDriver;
+			name = MovaviSoundGrabberDriver;
 			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 			productName = SampleAudioDriver;
-			productReference = 54D0ADA60A5E329B006380BD /* MovaviSoundTap.kext */;
+			productReference = 54D0ADA60A5E329B006380BD /* MovaviSoundGrabber.kext */;
 			productType = "com.apple.product-type.kernel-extension.iokit";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 548AD6D309CE873500241D17 /* Build configuration list for PBXProject "MovaviSoundTap" */;
+			buildConfigurationList = 548AD6D309CE873500241D17 /* Build configuration list for PBXProject "MovaviSoundGrabber" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54D0AD930A5E329B006380BD /* MovaviSoundTapDriver */,
+				54D0AD930A5E329B006380BD /* MovaviSoundGrabberDriver */,
 			);
 		};
 /* End PBXProject section */
@@ -162,8 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54D0AD9B0A5E329B006380BD /* SoundTapEngine.cpp in Sources */,
-				54D0AD9D0A5E329B006380BD /* SoundTapDevice.cpp in Sources */,
+				54D0AD9B0A5E329B006380BD /* SoundGrabberEngine.cpp in Sources */,
+				54D0AD9D0A5E329B006380BD /* SoundGrabberDevice.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +189,7 @@
 		};
 		54D0ADA20A5E329B006380BD /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2249EC7E0ED70C7E003C8357 /* Soundflower.xcconfig */;
+			baseConfigurationReference = 2249EC7E0ED70C7E003C8357 /* MovaviSoundGrabber.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
@@ -205,7 +205,7 @@
 				INSTALL_OWNER = "$(USER)";
 				INSTALL_PATH = /../Build;
 				MODULE_NAME = com.Cycling74.driver.Soundflower;
-				PRODUCT_NAME = MovaviSoundTap;
+				PRODUCT_NAME = MovaviSoundGrabber;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -217,7 +217,7 @@
 		};
 		54D0ADA30A5E329B006380BD /* Deployment */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2249EC7E0ED70C7E003C8357 /* Soundflower.xcconfig */;
+			baseConfigurationReference = 2249EC7E0ED70C7E003C8357 /* MovaviSoundGrabber.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
@@ -230,7 +230,7 @@
 				INSTALL_OWNER = "$(USER)";
 				INSTALL_PATH = /../Build;
 				MODULE_NAME = com.Cycling74.driver.Soundflower;
-				PRODUCT_NAME = MovaviSoundTap;
+				PRODUCT_NAME = MovaviSoundGrabber;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -243,7 +243,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		548AD6D309CE873500241D17 /* Build configuration list for PBXProject "MovaviSoundTap" */ = {
+		548AD6D309CE873500241D17 /* Build configuration list for PBXProject "MovaviSoundGrabber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				548AD6D409CE873500241D17 /* Development */,
@@ -252,7 +252,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		54D0ADA10A5E329B006380BD /* Build configuration list for PBXNativeTarget "MovaviSoundTapDriver" */ = {
+		54D0ADA10A5E329B006380BD /* Build configuration list for PBXNativeTarget "MovaviSoundGrabberDriver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54D0ADA20A5E329B006380BD /* Development */,
