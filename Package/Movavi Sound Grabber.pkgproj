@@ -475,9 +475,9 @@
 				<key>POSTINSTALL_PATH</key>
 				<dict>
 					<key>PATH</key>
-					<string>/Users/k.evdokimenko/Work/soundgrabber/Package/postinstall</string>
+					<string>postinstall</string>
 					<key>PATH_TYPE</key>
-					<integer>0</integer>
+					<integer>1</integer>
 				</dict>
 				<key>PREINSTALL_PATH</key>
 				<dict/>
@@ -492,6 +492,8 @@
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
 				<string>com.movavi.pkg.soundgrabber</string>
+				<key>LOCATION</key>
+				<integer>0</integer>
 				<key>NAME</key>
 				<string>Movavi Sound Grabber</string>
 				<key>OVERWRITE_PERMISSIONS</key>
