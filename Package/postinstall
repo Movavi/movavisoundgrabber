@@ -1,0 +1,4 @@
+#!/bin/bash
+
+touch /System/Library/Extensions
+kextload /System/Library/Extensions/MovaviSoundGrabber.kext
