@@ -595,9 +595,9 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>/Users/k.evdokimenko/Work/soundgrabber/Package/Welcome.en.rtf</string>
+							<string>Welcome.en.rtf</string>
 							<key>PATH_TYPE</key>
-							<integer>0</integer>
+							<integer>1</integer>
 						</dict>
 					</dict>
 					<dict>
@@ -606,9 +606,9 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>/Users/k.evdokimenko/Work/soundgrabber/Package/Welcome.ru.rtf</string>
+							<string>Welcome.ru.rtf</string>
 							<key>PATH_TYPE</key>
-							<integer>0</integer>
+							<integer>1</integer>
 						</dict>
 					</dict>
 				</array>
@@ -625,9 +625,9 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>/Users/k.evdokimenko/Work/soundgrabber/License.txt</string>
+							<string>../License.txt</string>
 							<key>PATH_TYPE</key>
-							<integer>0</integer>
+							<integer>1</integer>
 						</dict>
 					</dict>
 				</array>
