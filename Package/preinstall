@@ -1,0 +1,16 @@
+#!/bin/bash
+
+KEXT_NAME=MovaviSoundGrabber.kext
+KEXT_PATH_OLD=/System/Library/Extensions/$KEXT_NAME
+KEXT_PATH_NEW=/Library/Extensions/$KEXT_NAME
+
+if [ -d $KEXT_PATH_OLD ]; then
+    kextunload $KEXT_PATH_OLD
+fi
+
+if [ -d $KEXT_PATH_NEW ]; then
+    kextunload $KEXT_PATH_NEW
+fi
+
+rm -rf $KEXT_PATH_OLD
+rm -rf $KEXT_PATH_NEW
