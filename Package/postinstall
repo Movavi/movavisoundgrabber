@@ -1,4 +1,18 @@
 #!/bin/bash
 
-touch /System/Library/Extensions
-kextload /System/Library/Extensions/MovaviSoundGrabber.kext
+
+if [ -d /Library/Extensions ]; then
+    touch /Library/Extensions
+    if [ -d /Library/Extensions/MovaviSoundGrabber.kext ]; then
+        kextload /Library/Extensions/MovaviSoundGrabber.kext
+        exit 0
+    fi
+fi
+
+if [ -d /Library/Extensions ]; then
+    touch /System/Library/Extensions
+    if [ -d /System/Library/Extensions/MovaviSoundGrabber.kext ]; then
+        touch /System/Library/Extensions
+        kextload /System/Library/Extensions/MovaviSoundGrabber.kext
+    fi
+fi
