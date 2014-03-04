@@ -23,3 +23,6 @@ build
 .*
 *.kext
 *.app
+*.mpkg
+*.pkg
+*.dmg
