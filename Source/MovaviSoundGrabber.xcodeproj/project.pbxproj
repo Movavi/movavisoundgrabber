@@ -204,7 +204,7 @@
 				INSTALL_GROUP = "$(GROUP)";
 				INSTALL_OWNER = "$(USER)";
 				INSTALL_PATH = /../Build;
-				MODULE_NAME = com.Cycling74.driver.Soundflower;
+				MODULE_NAME = com.movavi.driver.SoundGrabber;
 				PRODUCT_NAME = MovaviSoundGrabber;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -229,7 +229,7 @@
 				INSTALL_GROUP = "$(GROUP)";
 				INSTALL_OWNER = "$(USER)";
 				INSTALL_PATH = /../Build;
-				MODULE_NAME = com.Cycling74.driver.Soundflower;
+				MODULE_NAME = com.movavi.driver.SoundGrabber;
 				PRODUCT_NAME = MovaviSoundGrabber;
 				WARNING_CFLAGS = (
 					"-Wmost",
