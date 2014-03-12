@@ -3,14 +3,35 @@
 KEXT_NAME=MovaviSoundGrabber.kext
 KEXT_PATH_OLD=/System/Library/Extensions/$KEXT_NAME
 KEXT_PATH_NEW=/Library/Extensions/$KEXT_NAME
+KEXT_BUNDLE_ID=com.movavi.driver.SoundGrabber
 
 if [ -d $KEXT_PATH_OLD ]; then
-    kextunload $KEXT_PATH_OLD
+    # Проверяем загружен ли модуль, $? устанавливается в 0 если grep нашёл
+    # идентификатор бандла в выводе kext, иначе будет не 0.
+    kextstat | grep -q $KEXT_BUNDLE_ID
+    if [ $? -eq 0 ]; then
+        kextunload $KEXT_PATH_OLD
+        # Бывает, что с первого раза не выгружается, но выгружается со второго.
+        if [ $? -ne 0 ]; then
+            sleep 2
+            kextunload $KEXT_PATH_OLD
+        fi
+    fi
 fi
 
+# Аналогично KEXT_PATH_OLD. На всякий случай пробуем выгружать оба,
+# если по какой-то причине оба оказались установлены и невозможно
+# выгрузить один используя бандл другого.
 if [ -d $KEXT_PATH_NEW ]; then
-    kextunload $KEXT_PATH_NEW
+    kextstat | grep -q $KEXT_BUNDLE_ID
+    if [ $? -eq 0 ]; then
+        kextunload $KEXT_PATH_NEW
+        if [ $? -ne 0 ]; then
+            sleep 2
+            kextunload $KEXT_PATH_NEW
+        fi
+    fi
 fi
 
-rm -rf $KEXT_PATH_OLD
-rm -rf $KEXT_PATH_NEW
+# rm -rf $KEXT_PATH_OLD
+# rm -rf $KEXT_PATH_NEW
