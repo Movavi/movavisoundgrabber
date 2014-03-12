@@ -33,5 +33,5 @@ if [ -d $KEXT_PATH_NEW ]; then
     fi
 fi
 
-# rm -rf $KEXT_PATH_OLD
-# rm -rf $KEXT_PATH_NEW
+rm -rf $KEXT_PATH_OLD
+rm -rf $KEXT_PATH_NEW
