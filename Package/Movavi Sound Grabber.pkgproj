@@ -366,7 +366,7 @@
 													<key>GID</key>
 													<integer>0</integer>
 													<key>PATH</key>
-													<string>Build/Universal/MovaviSoundGrabber.kext</string>
+													<string>kexts/Universal/MovaviSoundGrabber.kext</string>
 													<key>PATH_TYPE</key>
 													<integer>1</integer>
 													<key>PERMISSIONS</key>
@@ -595,7 +595,7 @@
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
-											<string>Build/Signed/MovaviSoundGrabber.kext</string>
+											<string>kexts/Signed/MovaviSoundGrabber.kext</string>
 											<key>PATH_TYPE</key>
 											<integer>1</integer>
 											<key>PERMISSIONS</key>
