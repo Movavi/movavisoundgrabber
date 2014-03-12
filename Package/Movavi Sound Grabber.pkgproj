@@ -1081,24 +1081,15 @@
 										<integer>0</integer>
 										<key>DICTIONARY</key>
 										<dict>
-											<key>IC_REQUIREMENT_SCRIPT_ARGUMENTS</key>
+											<key>IC_REQUIREMENT_JAVASCRIPT_FUNCTION</key>
+											<string>IsNew</string>
+											<key>IC_REQUIREMENT_JAVASCRIPT_PARAMETERS</key>
 											<array/>
-											<key>IC_REQUIREMENT_SCRIPT_COMPARATOR</key>
-											<integer>-1</integer>
-											<key>IC_REQUIREMENT_SCRIPT_EMBED</key>
-											<true/>
-											<key>IC_REQUIREMENT_SCRIPT_PATH</key>
-											<dict>
-												<key>PATH</key>
-												<string>getversion</string>
-												<key>PATH_TYPE</key>
-												<integer>1</integer>
-											</dict>
-											<key>IC_REQUIREMENT_SCRIPT_VALUE</key>
-											<integer>9</integer>
+											<key>IC_REQUIREMENT_JAVASCRIPT_RETURN_VALUE</key>
+											<integer>0</integer>
 										</dict>
 										<key>IDENTIFIER</key>
-										<string>fr.whitebox.Packages.requirement.scripts</string>
+										<string>fr.whitebox.Packages.requirement.javascript</string>
 										<key>MESSAGE</key>
 										<array/>
 										<key>NAME</key>
@@ -1132,27 +1123,16 @@
 								<array>
 									<dict>
 										<key>BEHAVIOR</key>
-										<integer>1</integer>
+										<integer>0</integer>
 										<key>DICTIONARY</key>
 										<dict>
-											<key>IC_REQUIREMENT_SCRIPT_ARGUMENTS</key>
+											<key>IC_REQUIREMENT_JAVASCRIPT_FUNCTION</key>
+											<string>IsNew</string>
+											<key>IC_REQUIREMENT_JAVASCRIPT_PARAMETERS</key>
 											<array/>
-											<key>IC_REQUIREMENT_SCRIPT_COMPARATOR</key>
-											<integer>1</integer>
-											<key>IC_REQUIREMENT_SCRIPT_EMBED</key>
-											<true/>
-											<key>IC_REQUIREMENT_SCRIPT_PATH</key>
-											<dict>
-												<key>PATH</key>
-												<string>getversion</string>
-												<key>PATH_TYPE</key>
-												<integer>1</integer>
-											</dict>
-											<key>IC_REQUIREMENT_SCRIPT_VALUE</key>
-											<integer>8</integer>
 										</dict>
 										<key>IDENTIFIER</key>
-										<string>fr.whitebox.Packages.requirement.scripts</string>
+										<string>fr.whitebox.Packages.requirement.javascript</string>
 										<key>MESSAGE</key>
 										<array/>
 										<key>NAME</key>
@@ -1512,7 +1492,10 @@
 	<key>SHARED_GLOBAL_DATA</key>
 	<dict>
 		<key>IC_REQUIREMENT_JAVASCRIPT_SHARED_SOURCE_CODE</key>
-		<string></string>
+		<string>function IsNew()
+{
+	return system.compareVersions(system.version["ProductVersion"], '10.9') &gt;= 0;
+}</string>
 	</dict>
 	<key>TYPE</key>
 	<integer>0</integer>
