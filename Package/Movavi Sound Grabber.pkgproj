@@ -1494,8 +1494,7 @@
 		<key>IC_REQUIREMENT_JAVASCRIPT_SHARED_SOURCE_CODE</key>
 		<string>function IsNew()
 {
-	return false; // Временно, пока нет возможности подписать модуль для 10.9
-	// return system.compareVersions(system.version["ProductVersion"], '10.9') &gt;= 0;
+	return system.compareVersions(system.version["ProductVersion"], '10.9') &gt;= 0;
 }</string>
 	</dict>
 	<key>TYPE</key>
