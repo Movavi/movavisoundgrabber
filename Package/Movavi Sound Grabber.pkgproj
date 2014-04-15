@@ -1225,11 +1225,99 @@
 				<array>
 					<dict>
 						<key>LANGUAGE</key>
+						<string>Brazilian Portuguese</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_BR.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Dutch</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_NL.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>Welcome.en.rtf</string>
+							<string>Welcome_EN.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>French</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_FR.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>German</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_DE.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Italian</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_IT.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Japanese</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_JP.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Polish</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_PL.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Portuguese</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_BR.rtf</string>
 							<key>PATH_TYPE</key>
 							<integer>1</integer>
 						</dict>
@@ -1240,7 +1328,29 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>Welcome.ru.rtf</string>
+							<string>Welcome_RU.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Spanish</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_ES.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>Turkish</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>Welcome_TR.rtf</string>
 							<key>PATH_TYPE</key>
 							<integer>1</integer>
 						</dict>
