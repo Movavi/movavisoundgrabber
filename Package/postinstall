@@ -9,7 +9,7 @@ if [ -d /Library/Extensions ]; then
     fi
 fi
 
-if [ -d /Library/Extensions ]; then
+if [ -d /System/Library/Extensions ]; then
     touch /System/Library/Extensions
     if [ -d /System/Library/Extensions/MovaviSoundGrabber.kext ]; then
         kextload /System/Library/Extensions/MovaviSoundGrabber.kext
